@@ -1,11 +1,99 @@
 import os
 import re
 import uuid
+import json
+import pytest
+import requests
+from flask_sqlalchemy import SQLAlchemy
 from flask import request
 from ..models.models import Blacklist, db
 
 
 # --------------------- Utils ---------------------
+
+
+def validate_token(auth_header):
+    # Validate token is present
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return False, 403, "Falta el token de autorización"
+
+    # Validate token is valid
+    token = auth_header.split("Bearer ")[1]
+    valid_token = os.getenv("SECRET_TOKEN")
+    if token != valid_token:
+        return False, 401, "Token de autorización inválido"
+
+    return True, 200, None
+
+
+def validate_token(auth_header):
+    # Validate token is present
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return False, 403, "Falta el token de autorización"
+
+    # Validate token is valid
+    token = auth_header.split("Bearer ")[1]
+    valid_token = os.getenv("SECRET_TOKEN")
+    if token != valid_token:
+        return False, 401, "Token de autorización inválido"
+
+    return True, 200, None
+
+
+def validate_token(auth_header):
+    # Validate token is present
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return False, 403, "Falta el token de autorización"
+
+    # Validate token is valid
+    token = auth_header.split("Bearer ")[1]
+    valid_token = os.getenv("SECRET_TOKEN")
+    if token != valid_token:
+        return False, 401, "Token de autorización inválido"
+
+    return True, 200, None
+
+
+def validate_token(auth_header):
+    # Validate token is present
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return False, 403, "Falta el token de autorización"
+
+    # Validate token is valid
+    token = auth_header.split("Bearer ")[1]
+    valid_token = os.getenv("SECRET_TOKEN")
+    if token != valid_token:
+        return False, 401, "Token de autorización inválido"
+
+    return True, 200, None
+
+
+def validate_token(auth_header):
+    # Validate token is present
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return False, 403, "Falta el token de autorización"
+
+    # Validate token is valid
+    token = auth_header.split("Bearer ")[1]
+    valid_token = os.getenv("SECRET_TOKEN")
+    if token != valid_token:
+        return False, 401, "Token de autorización inválido"
+
+    return True, 200, None
+
+
+def validate_token(auth_header):
+    # Validate token is present
+    if not auth_header or not auth_header.startswith("Bearer "):
+        return False, 403, "Falta el token de autorización"
+
+    # Validate token is valid
+    token = auth_header.split("Bearer ")[1]
+    valid_token = os.getenv("SECRET_TOKEN")
+    if token != valid_token:
+        return False, 401, "Token de autorización inválido"
+
+    return True, 200, None
 
 
 def validate_token(auth_header):
