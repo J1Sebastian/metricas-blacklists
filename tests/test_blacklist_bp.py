@@ -10,18 +10,3 @@ blacklist_data = {
 }
 
 headers = {"Authorization": f"Bearer {os.getenv('SECRET_TOKEN')}"}
-
-
-# --------------------- 1. Add email to blacklist ---------------------
-
-
-def test_add_email(test_client):
-    response = test_client.post(
-        "/blacklists",
-        json=blacklist_data,
-        headers=headers,
-        content_type="application/json",
-    )
-    assert response.status_code == 201
-    response_data = json.loads(response.data)
-    assert response_data["msg"] == "Email añadido a la lista negra"

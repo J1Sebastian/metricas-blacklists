@@ -27,7 +27,8 @@ jobs:
       - name: pruebas+coverage
         id: pruebas
         run: |
-          pipenv run pytest --cov=src --cov-report xml:coverage.xml
+          mkdir -p coverage-reports
+          pipenv run pytest --cov=src --cov-report=xml:coverage-reports/coverage.xml
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
